@@ -1,7 +1,7 @@
 const getTodos = (callback) => {
   const xhr = new XMLHttpRequest();
 
-  xhr.open('GET', `https://jsonplaceholder.typicode.com/todos`);
+  xhr.open('GET', `todos.json`);
 
   xhr.addEventListener('readystatechange', () => {
     if (xhr.readyState === 4 && xhr.status === 200) {
