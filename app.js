@@ -1,7 +1,7 @@
-const getTodos = (callback) => {
+const getTodos = (resource, callback) => {
   const xhr = new XMLHttpRequest();
 
-  xhr.open('GET', `todos.json`);
+  xhr.open('GET', resource);
 
   xhr.addEventListener('readystatechange', () => {
     if (xhr.readyState === 4 && xhr.status === 200) {
@@ -14,14 +14,12 @@ const getTodos = (callback) => {
   xhr.send();
 };
 
-console.log(1);
-console.log(2);
-getTodos((err, data) => {
-  if (err) {
-    console.log(err);
-  } else {
+getTodos('todos/mario.json', (err, data) => {
+  console.log(data);
+  getTodos('todos/luigi.json', (err, data) => {
     console.log(data);
-  }
+    getTodos('todos/peach.json', (err, data) => {
+      console.log(data);
+    });
+  });
 });
-console.log(3);
-console.log(4);
