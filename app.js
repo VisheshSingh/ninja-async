@@ -30,5 +30,15 @@ const getTodos = (resource) => {
 
 // PROMISES
 getTodos('todos/mario.json')
-  .then((data) => console.log(data))
+  .then((data) => {
+    console.log('Promise 1 data: ', data);
+    return getTodos('todos/luigi.json');
+  })
+  .then((data) => {
+    console.log('Promise 2 data: ', data);
+    return getTodos('todos/peach.json');
+  })
+  .then((data) => {
+    console.log('Promise 3 data: ', data);
+  })
   .catch((err) => console.log(err));
