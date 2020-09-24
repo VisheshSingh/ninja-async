@@ -42,3 +42,9 @@ getTodos('todos/mario.json')
     console.log('Promise 3 data: ', data);
   })
   .catch((err) => console.log(err));
+
+// FETCH API
+fetch('todos/mario.json')
+  .then((res) => res.json())
+  .then((data) => console.log(data))
+  .catch((err) => console.log(err));
