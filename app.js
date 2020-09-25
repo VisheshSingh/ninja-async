@@ -48,3 +48,16 @@ fetch('todos/mario.json')
   .then((res) => res.json())
   .then((data) => console.log(data))
   .catch((err) => console.log(err));
+
+// ASYNC AWAIT
+const getTodosAsync = async () => {
+  try {
+    const res = await fetch('todos/luigi.json');
+    const data = await res.json();
+    console.log('async await:', data);
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+getTodosAsync();
